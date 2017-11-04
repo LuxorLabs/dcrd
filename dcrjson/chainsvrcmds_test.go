@@ -257,7 +257,7 @@ func TestChainSvrCmds(t *testing.T) {
 				return dcrjson.NewGetBlockTemplateCmd(nil)
 			},
 			marshalled:   `{"jsonrpc":"1.0","method":"getblocktemplate","params":[],"id":1}`,
-			unmarshalled: &dcrjson.GetBlockTemplateCmd{Request: nil},
+			unmarshalled: &dcrjson.GetqCmd{Request: nil},
 		},
 		{
 			name: "getblocktemplate optional - template request",

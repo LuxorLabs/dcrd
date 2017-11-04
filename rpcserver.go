@@ -176,6 +176,7 @@ type commandHandler func(*rpcServer, interface{}, <-chan struct{}) (interface{},
 // a dependency loop.
 var rpcHandlers map[string]commandHandler
 var rpcHandlersBeforeInit = map[string]commandHandler{
+	"getblocktemplate":      handleGetBlockTemplate,
 	"addnode":               handleAddNode,
 	"createrawsstx":         handleCreateRawSStx,
 	"createrawssgentx":      handleCreateRawSSGenTx,
@@ -300,7 +301,6 @@ var rpcAskWallet = map[string]struct{}{
 var rpcUnimplemented = map[string]struct{}{
 	"estimatefee":       {},
 	"estimatepriority":  {},
-	"getblocktemplate":  {},
 	"getblockchaininfo": {},
 	"getchaintips":      {},
 	"getnetworkinfo":    {},
